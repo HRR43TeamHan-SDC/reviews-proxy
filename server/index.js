@@ -136,7 +136,7 @@ html = `
   </body>
 </html>
 `
-app.get('/:restaurantId', (req, res) => {
+app.get('/:id', (req, res) => {
   axios.get(` http://localhost:${reviewsPort}${req.url}`)
   .then(response => response.data)
   .then(data => res.send(data))
