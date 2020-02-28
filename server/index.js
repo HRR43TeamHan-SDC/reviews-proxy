@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const app = express();
 
-const PROXY_PORT = process.env.PROXY_PORT || 3043;
+const PROXY_PORT = process.env.PROXY_PORT || 8888;
 
 const MENUS_HOST = process.env.MENUS_HOST || 'localhost';
 const MENUS_PORT = process.env.MENUS_PORT || 3043;
