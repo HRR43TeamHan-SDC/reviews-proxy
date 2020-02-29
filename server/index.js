@@ -134,7 +134,7 @@ html = `
     </div>
     <script src="http://ec2-54-193-70-33.us-west-1.compute.amazonaws.com:4444/bundle.js"></script>
     <script src="http://sdc.heskett.ninja/bundle.js"></script>
-    <!-- <script src="http://ec2-18-188-10-239.us-east-2.compute.amazonaws.com:3300/bundle.js"></script> -->
+    <script src="http://ec2-18-188-10-239.us-east-2.compute.amazonaws.com:3300/bundle.js"></script>
     <script src="http://ec2-3-133-85-12.us-east-2.compute.amazonaws.com:3009/bundle.js"></script>
   </body>
 </html>
@@ -145,6 +145,7 @@ html = `
 //   .then(data => res.send(data))
 //   .catch(err => console.log('error at proxy serving',err));
 // });
+
 app.get('api/reviews/:id', (req, res) => {
   res.redirect(307, `http://ec2-18-188-10-239.us-east-2.compute.amazonaws.com:3043${req.url}`);
 });
