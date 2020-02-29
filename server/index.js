@@ -1,5 +1,5 @@
+require('newrelic');
 require('dotenv').config();
-require('newrelic')
 
 const express = require('express');
 const axios = require('axios');
