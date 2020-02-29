@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const app = express();
 
-const PROXY_PORT = process.env.PROXY_PORT || 8888;
+const PROXY_PORT = process.env.PROXY_PORT || 3043;
 
 const MENUS_HOST = process.env.MENUS_HOST || 'localhost';
 const MENUS_PORT = process.env.MENUS_PORT || 3043;
@@ -136,8 +136,8 @@ html = `
   </body>
 </html>
 `
-app.get('/:id', (req, res) => {
-  axios.get(` http://${REVIEWS_HOST}:${REVIEWS_PORT}${req.url}`)
+app.get('api/reviews/:id', (req, res) => {
+  axios.get(` http://${REVIEWS_HOST}:${REVIEWS_PORT}/${req.url}`)
   .then(response => response.data)
   .then(data => res.send(data))
   .catch(err => console.log('error at proxy serving',err));
@@ -146,7 +146,6 @@ app.get('/:id', (req, res) => {
 app.use('/:id', (req, res) => {
   res.send(html);
 });
-
 app.listen(PROXY_PORT, () => {
   console.log(`App listening on port ${PROXY_PORT}`);
 });
