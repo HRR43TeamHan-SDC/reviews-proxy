@@ -243,12 +243,12 @@ app.post('/api/photos', (req, res) => {
 });
 
 
-// HTML IMAGES
-app.get('/images/*', (req, res) => {
-  const gzip = zlib.createGzip();
-  res.set({ 'Content-Encoding': 'gzip' });
-  fs.createReadStream(path.resolve(__dirname, `../public${req.url}`)).pipe(gzip).pipe(res);
-});
+// // HTML IMAGES
+// app.get('/images/*', (req, res) => {
+//   const gzip = zlib.createGzip();
+//   res.set({ 'Content-Encoding': 'gzip' });
+//   fs.createReadStream(path.resolve(__dirname, `../public${req.url}`)).pipe(gzip).pipe(res);
+// });
 
 
 
