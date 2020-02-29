@@ -140,7 +140,7 @@ html = `
 </html>
 `
 app.get('api/reviews/:id', (req, res) => {
-  axios.get(` http://${REVIEWS_HOST}:${REVIEWS_PORT}/${req.url}`)
+  axios.get(`http://${REVIEWS_HOST}:${REVIEWS_PORT}${req.url}`)
   .then(response => response.data)
   .then(data => res.send(data))
   .catch(err => console.log('error at proxy serving',err));
