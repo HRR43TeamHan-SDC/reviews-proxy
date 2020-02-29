@@ -147,7 +147,7 @@ html = `
 // });
 
 app.get('api/reviews/:id', (req, res) => {
-  res.redirect(307, `http://ec2-18-188-10-239.us-east-2.compute.amazonaws.com:3043${req.url}`);
+  res.redirect(307, `http://ec2-18-188-10-239.us-east-2.compute.amazonaws.com:3300${req.url}`);
 });
 
 // MENU MODULE
