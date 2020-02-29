@@ -3,6 +3,9 @@ require('dotenv').config();
 
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
+const fs = require('fs');
+const zlib = require('zlib');
 
 const app = express();
 
@@ -214,6 +217,48 @@ app.route('/api/item/:id')
 //   .then(data => res.send(data))
 //   .catch(err => console.log('error at proxy serving',err));
 // });
+
+// PHOTO GALLERY MODULE
+app.get('/api/photos/:id', (req, res) => {
+  // res.redirect(`http://ec2-3-133-85-12.us-east-2.compute.amazonaws.com:3009/api/photos/${req.params.id}`);
+  axios.get(`http://ec2-3-133-85-12.us-east-2.compute.amazonaws.com:3009/api/photos/${req.params.id}`)
+    .then((response) => {
+  //     const stream = new Readable({
+  //       read() {
+  //         this.push(JSON.stringify(response.data));
+  //         this.push(null);
+  //       },
+  //     });
+  //     stream.pipe(res);
+      res.send(response.data);
+    })
+    .catch((err) => res.send(err));
+});
+
+app.post('/api/photos', (req, res) => {
+  // res.redirect(307, `http://ec2-3-133-85-12.us-east-2.compute.amazonaws.com:3009/api/photos`);
+  axios.post(`http://ec2-3-133-85-12.us-east-2.compute.amazonaws.com:3009/api/photos`, req.body)
+    .then((response) => res.send(response))
+    .catch((err) => res.send(err));
+});
+
+
+// HTML IMAGES
+app.get('/images/*', (req, res) => {
+  const gzip = zlib.createGzip();
+  res.set({ 'Content-Encoding': 'gzip' });
+  fs.createReadStream(path.resolve(__dirname, `../public${req.url}`)).pipe(gzip).pipe(res);
+});
+
+
+
+
+// RESERVATION MODULE
+app.get('/api/reservations/:restaurantId/dateTime/:dateTime', (req, res) => {
+  res.redirect(307, `http://ec2-54-193-70-33.us-west-1.compute.amazonaws.com:4444${req.url}`)
+});
+
+
 
 app.use('/:id', (req, res) => {
   res.send(html);
