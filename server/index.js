@@ -143,6 +143,78 @@ app.get('api/reviews/:id', (req, res) => {
   .catch(err => console.log('error at proxy serving',err));
 });
 
+// MENU MODULE
+// const MENU_HOSTNAME = process.env.MENU_HOSTNAME || 'localhost';
+// const MENU_PORT = process.env.MENU_PORT || 8001;
+app.get('/gettitle/:id', (req, res) => {
+  res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+});
+app.get('/getmenu/:id', (req, res) => {
+  res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+});
+app.post('/api/restaurant', (req, res) => {
+  res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+})
+// Try to use the following vs all the routes to simplify code
+// app.use('/api/restaurant/:id', (req, res) => {
+//   console.log(req.url);
+//   res.redirect(`http://sdc.heskett.ninja${req.url}`)
+// });
+app.route('/api/restaurant/:id')
+  .get((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .put((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .delete((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  });
+app.route('/api/menu/:id')
+  .get((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .post((req, res) => {
+    // Used to post a new section
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .put((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .delete((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  });
+app.route('/api/section/:id')
+  .get((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .post((req, res) => {
+    // Used to post a new item
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .put((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .delete((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  });
+app.route('/api/item/:id')
+  .get((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .put((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  })
+  .delete((req, res) => {
+    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+  });
+// app.get('/getmenu/:id', (req, res) => {
+//   axios.get(`http://sdc.heskett.ninja${req.url}`)
+//   .then(response => response.data)
+//   .then(data => res.send(data))
+//   .catch(err => console.log('error at proxy serving',err));
+// });
+
 app.use('/:id', (req, res) => {
   res.send(html);
 });
