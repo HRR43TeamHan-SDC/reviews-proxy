@@ -120,7 +120,7 @@ html = `
         <div class="area-description"><!-- &nbsp; --></div>
         <div class="area-photo"><div id="photos">photo module not loaded</div></div>
         <div class="area-menu"><div id="root">menu module menus not loaded</div></div>
-        <div class="area-review"><br><br><div id="app">review module not loaded</div></div>
+        <div class="area-review"><br><br><div id="reviews">review module not loaded</div></div>
       </div>
       <div class="grid-gap"></div>
       <div class="grid-right">
