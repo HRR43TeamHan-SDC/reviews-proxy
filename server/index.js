@@ -129,10 +129,10 @@ html = `
       <div class="grid-right-gutter"></div>
       <div class="grid-footer"></div>
     </div>
-    <script src="http://${MENUS_HOST}:${MENUS_PORT}/bundle.js"></script>
-    <script src="http://${PHOTOS_HOST}:${PHOTOS_PORT}/bundle.js"></script>
-    <script src="http://${REVIEWS_HOST}:${REVIEWS_PORT}/bundle.js"></script>
-    <script src="http://${RESERVATIONS_HOST}:${RESERVATIONS_PORT}/bundle.js"></script>
+    <script src="http://ec2-54-193-70-33.us-west-1.compute.amazonaws.com:4444/bundle.js"></script>
+    <script src="http://sdc.heskett.ninja/bundle.js"></script>
+    <!-- <script src="http://ec2-18-188-10-239.us-east-2.compute.amazonaws.com:3300/bundle.js"></script> -->
+    <script src="http://ec2-3-133-85-12.us-east-2.compute.amazonaws.com:3009/bundle.js"></script>
   </body>
 </html>
 `
@@ -162,7 +162,7 @@ app.post('/api/restaurant', (req, res) => {
 // });
 app.route('/api/restaurant/:id')
   .get((req, res) => {
-    res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
+    res.redirect(307, `http://sdc.heskett.ninja/${req.url}`);
   })
   .put((req, res) => {
     res.redirect(307, `http://sdc.heskett.ninja${req.url}`);
