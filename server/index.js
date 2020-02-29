@@ -146,7 +146,7 @@ html = `
 //   .catch(err => console.log('error at proxy serving',err));
 // });
 app.get('api/reviews/:id', (req, res) => {
-  res.redirect(307, `http://${REVIEWS_HOST}:${REVIEWS_PORT}${req.url}`);
+  res.redirect(307, `http://ec2-18-188-10-239.us-east-2.compute.amazonaws.com:3043${req.url}`);
 });
 
 // MENU MODULE
